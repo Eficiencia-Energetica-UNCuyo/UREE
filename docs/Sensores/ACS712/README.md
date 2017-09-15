@@ -1,0 +1,1 @@
+[DATASHEET](https://www.google.com.ar/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwjZhKjt-8XSAhWDEZAKHcOrD78QFggaMAA&url=http%3A%2F%2Fwww.allegromicro.com%2F~%2Fmedia%2Ffiles%2Fdatasheets%2Facs712-datasheet.ashx&usg=AFQjCNEdgyj1tRhZsRs4Gst4fvE5yhGDzA)

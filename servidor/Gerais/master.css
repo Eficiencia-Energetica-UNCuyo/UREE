@@ -1,0 +1,17 @@
+html,body { height: 100%; margin: 0px; padding: 0px; overflow: hidden;}
+.avatar {
+  width: 40px;
+  height: 40px;
+}
+.flecha{
+  width: 20px;
+  height: 30px;
+}
+svg{
+  width: 40px;
+  height: 40px;
+}
+table{
+  height: 100%;
+
+}

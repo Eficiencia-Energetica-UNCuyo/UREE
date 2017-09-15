@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+
+    <script type="text/javascript" src="../js/Chart.bundle.min.js"></script>
+
+
+	</head>
+	<body>
+
+		<script type="text/javascript">
+
+
+		$.ajax({
+			url : "../php/GraficoEnergiaTotal.php?",
+			type : "GET",
+			success : function(data){
+				var acumulado = [];
+				var DataDate = [];
+				var acumuladoan = [];
+				var DataDatean = [];
+				for(var i in data) {
+					acumulado.push(data[i].acumuladoActual);
+					DataDate.push(data[i].DateActual);
+					acumuladoan.push(data[i].acumuladoAnterior);
+					DataDatean.push(data[i].DateAnterior);
+
+				}
+				console.log('%o',{data})
+				console.log(acumulado);
+				console.log(DataDate);
+				console.log(acumuladoan);
+				console.log(DataDatean);
+
+
+				var chartdata = {
+					labels: DataDatean,
+					datasets: [
+						{
+							label: "Energia",
+							yAxisID:"Energia",
+							fill: false,
+							backgroundColor: "rgba(255,99,132,1)",
+							borderColor: "rgba(255,99,132,1)",
+							pointHoverBackgroundColor: "rgba(255,99,132,1)",
+							pointHoverBorderColor: "rgba(255,99,132,1)",
+							data: acumulado
+						}
+						,
+						{
+							label: "Humedad",
+							yAxisID:"Humedad",
+							fill: false,
+							backgroundColor: "rgba(54, 162, 235, 1)",
+							borderColor: "rgba(54, 162, 235, 1)",
+							pointHoverBackgroundColor: "rgba(54, 162, 235, 1)",
+							pointHoverBorderColor: "rgba(54, 162, 235, 1)",
+							data: acumuladoan
+						}
+					]
+				};
+
+				var ctx = $("#myChart3");
+				var LineGraph = new Chart(ctx, {
+					type: 'line',
+					data: chartdata,
+					options: {
+							scales: {
+									xAxes: [{
+											display: true,
+											scaleLabel: {
+			                            display: true
+			                        },
+											ticks: {
+													maxRotation: 0,
+													minRotation: 0,
+													fontColor: "#9a9ca5",
+													fontStyle: "bold",
+											}
+									}],
+									yAxes: [{
+											position:"left",
+											type: "linear",
+											id:"Energia",
+											ticks: {
+													fontColor: "rgba(59, 89, 152, 0.75)",
+													fontStyle: "bold",
+													callback: function(label, index, labels) {
+																		return label+' kWh';
+													}
+											}
+										},{
+												position:"right",
+												type: "linear",
+												id:"Humedad",
+												ticks: {
+														fontColor: "rgba(29, 202, 255, 0.75)",
+														fontStyle: "bold",
+														callback: function(label, index, labels) {
+																			return label+' kWh';
+
+														}
+												}
+									}]
+							}
+						}
+				});
+			},
+			error : function(data) {} });
+
+
+		</script>
+		<canvas id="myChart3" width="300" height="300"></canvas>
+
+	</body>
+</html>
