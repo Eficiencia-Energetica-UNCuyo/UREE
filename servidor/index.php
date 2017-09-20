@@ -123,8 +123,13 @@
                 $mysqli->close();
           ?>
         </div>
-        <a href="#slideit" class="subir">Inicio</a>
-        <a href="./Gerais/gerais.php" class="subir">Gerais</a>
+        
+        <div class="flex-container">
+        <div class="flex-item"><a href="#slideit" class="subir">Inicio</a></div>
+        <div class="flex-item"><a href="./Gerais/gerais.php" class="subir">Gerais</a></div>
+        </div>
+        
+        
       </div>
       <div class="canvas">
         <canvas id="polar_1"></canvas>
