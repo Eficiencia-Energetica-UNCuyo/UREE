@@ -125,8 +125,8 @@
         </div>
         
         <div class="flex-container">
-        <div class="flex-item"><a href="#slideit" class="subir">Inicio</a></div>
-        <div class="flex-item"><a href="./Gerais/gerais.php" class="subir">Datos Generales</a></div>
+        <a href="#slideit" class="subir" class="flex-item">Inicio</a>
+        <a href="./Gerais/gerais.php" class="subir" class="flex-item">Datos Generales</a>
         </div>
         
         
