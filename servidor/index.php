@@ -21,7 +21,6 @@
   </head>
   <body>
     <header class="encabezado">
-      <a href="./Gerais/gerais.php"></a>
       <div id="slideit">
         <div id="dimmer">
           <div class="container-header" >
