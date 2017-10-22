@@ -3,42 +3,15 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CLEAN MARKUP = GOOD KARMA.
-      Hi source code lover,
-
-      you're a curious person and a fast learner ;)
-      Let's make something beautiful together. Contribute on Github:
-      https://github.com/webslides/webslides
-
-      Thanks!
-    -->
-
-    <!-- SEO -->
     <title>IDE: UREE </title>
     <meta name="description" content="UREE en EMESA. Una rápida referencia.">
-
-    <!-- URL CANONICAL -->
-    <!-- <link rel="canonical" href="http://your-url.com/permalink"> -->
-
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,700,700i%7CMaitree:200,300,400,600,700&amp;subset=latin-ext" rel="stylesheet">
-
-    <!-- CSS Base -->
     <link rel="stylesheet" type="text/css" media="all" href="../static/css/base.css">
-
-    <!-- CSS Colors -->
     <link rel="stylesheet" type="text/css" media="all" href="../static/css/colors.css">
-
-    <!-- Optional - CSS SVG Icons (Font Awesome) -->
     <link rel="stylesheet" type="text/css" media="all" href="../static/css/svg-icons.css">
-
-    <!-- SOCIAL CARDS (ADD YOUR INFO) -->
     <script type="text/javascript" src="../js/jquery.min.js"></script>
     <script type="text/javascript" src="../js/Chart.bundle.min.js"></script>
     <script type="text/javascript" src="../js/gerais.js"></script>
-
-    <!-- FAVICONS -->
     <link rel="shortcut icon" sizes="16x16" href="../static/images/favicons/favicon.png">
     <link rel="shortcut icon" sizes="32x32" href="../static/images/favicons/favicon-32.png">
     <link rel="apple-touch-icon icon" sizes="76x76" href="../static/images/favicons/favicon-76.png">
@@ -47,12 +20,10 @@
     <link rel="apple-touch-icon icon" sizes="180x180" href="../static/images/favicons/favicon-180.png">
     <link rel="apple-touch-icon icon" sizes="192x192" href="../static/images/favicons/favicon-192.png">
     <link rel="stylesheet" href="./master.css">
-    <!-- Android -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#333333">
   </head>
   <body>
-
 
     <main role="main">
       <article id="webslides">
@@ -193,8 +164,10 @@
                     </div>
               </div>
               <div class="column">
-                  <p style="padding-top:20%;">Este gráfico representa el consumo total acumulado en la institución desde principio
-                  de este mes hasta el día de la fecha. La otra curva representa el consumo análogo del mes pasado.</p>
+                  <p style="padding-top:20%;">Este gráfico representa el consumo
+                     total acumulado en la institución desde principio
+                  de este mes hasta el día de la fecha. La otra curva
+                  representa el consumo análogo del mes pasado.</p>
                 </div>
             </div>
               <!-- end .column -->
