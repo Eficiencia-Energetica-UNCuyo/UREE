@@ -85,9 +85,14 @@ void loop()
   Serial.println("Conversion lista...");
   Serial.print("Temperatura externa: ");
   // Obtenemos el valor de la temperatura.
-  Serial.println(sensors.getTempCByIndex(0)); 
+  Serial.println(sensors.getTempCByIndex(0));
+  Temp=String(sensors.getTempCByIndex(0));
+  String hum="12";
+ 
+  
+ 
 
-   if (AUX1.pressed())
+  if (AUX1.pressed())
    Serial.println("VENTANA ABIERTA !!");
   
   if (AUX2.released())
@@ -99,7 +104,7 @@ void loop()
 
    //Inicia la transmision de datos
   //http.begin("http://172.23.200.108/corriente.php?ipsrc=Oficina_1&corriente="); // HTTP.
-  http.begin("http://"+IP+"/php/Ranking.php?nombre="+Nombre+"&oficina="+Oficina+"&equipo="+Equipo+"&energia=" + corr);
+  http.begin("http://"+IP+"/receptor.php?ipsrc=Oficina_"+Oficina+"&Temperatura="+Temp+ "&Humedad="+ hum + "&PIR=1&Ventana_1=1&Ventana_2=1);
   int httpCode = http.GET();
   
     if(httpCode > 0) {
