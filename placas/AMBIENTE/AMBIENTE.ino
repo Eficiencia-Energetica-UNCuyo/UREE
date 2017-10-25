@@ -12,6 +12,13 @@
 ESP8266WiFiMulti WiFiMulti;
 HTTPClient http;
 
+///PARAMETROS A MODIFICAR///
+String Oficina="3";
+String IP="179.0.132.135";
+String User="IMD-AP4";
+String Password="imdwifi4";
+///////////////////////////
+
 // Definimos los pines utilizados.
 #define SENSOR_TEMP_EXT  2
 #define SENSOR_TEMP_INT  0
@@ -62,7 +69,8 @@ void setup() {
   sensors.begin();
 
   // Inicializa el módulo wifi.
-   WiFi.begin("IMD-AP4", "imdwifi4");
+  // WiFi.begin("IMD-AP4", "imdwifi4");
+ Wifi.begin(User,Password);
   
 }
 
@@ -90,8 +98,8 @@ void loop()
     previousMillis = currentMillis;   
 
    //Inicia la transmision de datos
-  http.begin("http://172.23.200.108/corriente.php?ipsrc=Oficina_1&corriente="); // HTTP.
-
+  //http.begin("http://172.23.200.108/corriente.php?ipsrc=Oficina_1&corriente="); // HTTP.
+  http.begin("http://"+IP+"/php/Ranking.php?nombre="+Nombre+"&oficina="+Oficina+"&equipo="+Equipo+"&energia=" + corr);
   int httpCode = http.GET();
   
     if(httpCode > 0) {
