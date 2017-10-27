@@ -1,10 +1,23 @@
- 
+// Prueba del módulo de sensores ambientales.
+// El sistema cuenta con sensor de temperatura externa,
+// interna, movimiento y 2 sensores de contacto seco.
+// Programador: Moyano Jonathan.
+// Versión: 0.1
+
+// Librería para manejar las comunicaciones WIFI.
 #include <ESP8266WiFi.h>
 #include <ESP8266WiFiMulti.h>
 #include <ESP8266HTTPClient.h>
 
 ESP8266WiFiMulti WiFiMulti;
 HTTPClient http;
+
+///PARAMETROS A MODIFICAR///
+String Oficina="3";
+String IP="179.0.132.135";
+String User="IMD-AP4";
+String Password="imdwifi4";
+///////////////////////////
 
 // Definimos los pines utilizados.
 #define SENSOR_TEMP_EXT  2
@@ -56,7 +69,8 @@ void setup() {
   sensors.begin();
 
   // Inicializa el módulo wifi.
-   WiFi.begin("IMD-AP4", "imdwifi4");
+  // WiFi.begin("IMD-AP4", "imdwifi4");
+ Wifi.begin(User,Password);
 
 }
 
@@ -72,8 +86,13 @@ void loop()
   Serial.print("Temperatura externa: ");
   // Obtenemos el valor de la temperatura.
   Serial.println(sensors.getTempCByIndex(0));
+  Temp=String(sensors.getTempCByIndex(0));
+  String hum="12";
 
-   if (AUX1.pressed())
+
+
+
+  if (AUX1.pressed())
    Serial.println("VENTANA ABIERTA !!");
 
   if (AUX2.released())
@@ -84,8 +103,8 @@ void loop()
     previousMillis = currentMillis;
 
    //Inicia la transmision de datos
-  http.begin("http://172.23.200.108/corriente.php?ipsrc=Oficina_1&corriente="); // HTTP.
-
+  //http.begin("http://172.23.200.108/corriente.php?ipsrc=Oficina_1&corriente="); // HTTP.
+  http.begin("http://"+IP+"/receptor.php?ipsrc=Oficina_"+Oficina+"&Temperatura="+Temp+ "&Humedad="+ hum + "&PIR=1&Ventana_1=1&Ventana_2=1);
   int httpCode = http.GET();
 
     if(httpCode > 0) {

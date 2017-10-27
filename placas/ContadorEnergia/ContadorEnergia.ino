@@ -9,6 +9,16 @@
 // Incluye librería para manejar el ACS712.
 #include "ACS712.h"
 
+///PARAMETROS A MODIFICAR///
+String Nombre="Valentina_Rodriguez";   //Importante ponerle el _
+String Oficina="3";
+String Equipo="Computadora";
+String IP="179.0.132.135";
+String User="IMD-AP4";
+String Password="imdwifi4";
+///////////////////////////
+
+
 ACS712 sensor(ACS712_30A,0);
 ESP8266WiFiMulti WiFiMulti;
 HTTPClient http;
@@ -39,7 +49,8 @@ void setup() {
   sensor.calibrate();
   Serial.println("Sensor calibrado !!");
 
-  WiFi.begin("IMD-AP4", "imdwifi4");
+  //WiFi.begin("IMD-AP4", "imdwifi4");
+  WiFi.begin(User, Password);
 
   // Resetea las variables globales.
   U = 0.0;
@@ -86,8 +97,9 @@ void loop() {
   Serial.println(String("Kw/h - millis = ") + EnergyCounter);
 
    //Inicia la transmision de datos
-  http.begin("http://172.23.200.108/corriente.php?ipsrc=Oficina_1&corriente="); // HTTP.
-
+  //http.begin("http://172.23.200.108/corriente.php?ipsrc=Oficina_1&corriente="); // HTTP.
+  http.begin("http://"+IP+"/php/Ranking.php?nombre="+Nombre+"&oficina="+Oficina+"&equipo="+Equipo+"&energia=" + EnergyCounter);
+    
   int httpCode = http.GET();
   
     if(httpCode > 0) {
