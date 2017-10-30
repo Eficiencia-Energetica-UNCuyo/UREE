@@ -70,7 +70,7 @@ void setup() {
 
   // Inicializa el módulo wifi.
   // WiFi.begin("IMD-AP4", "imdwifi4");
- Wifi.begin(User,Password);
+ WiFi.begin(User.c_str(), Password.c_str());
   
 }
 
