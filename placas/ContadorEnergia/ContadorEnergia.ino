@@ -50,8 +50,8 @@ void setup() {
   Serial.println("Sensor calibrado !!");
 
   //WiFi.begin("IMD-AP4", "imdwifi4");
-  WiFi.begin(User, Password);
-
+  WiFi.begin(User.c_str(), Password.c_str());
+  
   // Resetea las variables globales.
   U = 0.0;
   I = 0.0;
