@@ -31,7 +31,7 @@
                 <i class="material-icons" id="sol-mid">brightness_7</i>
                 <i class="material-icons">brightness_7</i>
               </div>
-              <h3 class="titulos"> Auditoría y /Cambio/ de Hábitos</h3><br>
+              <h3 class="titulos"> Auditoría y Cambio/ de Hábitos</h3><br>
               <p>UREE es un proyecto que tiene como objetivo el uso de la energía <br>
                  de forma consciente y la reducción del consumo con el motivo de <br>
                  reducir el gasto enegético y proteger el medio ambiente.</p><br><hr>
