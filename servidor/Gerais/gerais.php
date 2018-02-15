@@ -179,7 +179,7 @@
                     <h2>Ranking</h2>
                     <div class="grid vertical-align">
                       <div class="column">
-                        <?php
+                       <!-- <?php
                               define('DB_HOST', 'localhost');
                               define('DB_USERNAME', 'maria');
                               define('DB_PASSWORD', 'maria');
@@ -249,10 +249,10 @@
                               echo "</table>";
 
                               $mysqli->close();
-                        ?>
+                        ?>-->
                       </div>
                       <div class="column">
-                        <?php
+                        <!--<?php
                                        define('DB_HOST', 'localhost');
                                        define('DB_USERNAME', 'maria');
                                        define('DB_PASSWORD', 'maria');
@@ -322,7 +322,7 @@
                                        echo "</table>";
 
                                        $mysqli->close();
-                                 ?>
+                                 ?>-->
                       </div>
                     </div>
                   </div>
