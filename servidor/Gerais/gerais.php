@@ -178,7 +178,7 @@
                   <div class="wrap">
                     <h2>Ranking</h2>
                     <div class="grid vertical-align">
-                      <!--<div class="column">
+                      <div class="column">
                         <?php
                               define('DB_HOST', 'localhost');
                               define('DB_USERNAME', 'maria');
@@ -250,8 +250,8 @@
 
                               $mysqli->close();
                         ?>
-                      </div>-->
-                      <!--<div class="column">
+                      </div>
+                      <div class="column">
                         <?php
                                        define('DB_HOST', 'localhost');
                                        define('DB_USERNAME', 'maria');
@@ -323,7 +323,7 @@
 
                                        $mysqli->close();
                                  ?>
-                      </div>-->
+                      </div>
                     </div>
                   </div>
                 </section>
