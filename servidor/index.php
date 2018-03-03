@@ -72,7 +72,7 @@
                 $res = $mysqli->query($sqlmax);
                 $maximo = $res->fetch_assoc();
                 $maximo = $maximo['count(Individuo)'];
-                $result = mysql_query($sqlcrear);
+                // $result = mysql_query($sqlcrear);
                 $result = $mysqli->query($sqlcrear);
 
                 $yourArray = array();
