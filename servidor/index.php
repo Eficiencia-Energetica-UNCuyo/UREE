@@ -11,12 +11,12 @@
     <!--<link rel="stylesheet" href="css/pushy-buttons.min.css">-->
     <script type="text/javascript" src="js/aos.js"></script>
     <script type="text/javascript" src="js/anime.min.js"></script>
-    <!-- <script type="text/javascript" src="js/jquery.min.js"></script> -->
-    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <!-- <script type="text/javascript" src="js/jquery.js"></script> -->
     <script type="text/javascript" src="js/jquery-ui.js"></script>
     <script type="text/javascript" src="js/jquery.arctext.js"></script>
-    <!-- <script type="text/javascript" src="js/Chart.bundle.min.js"></script> -->
-    <script type="text/javascript" src="js/Chart.bundle.js"></script>
+    <script type="text/javascript" src="js/Chart.bundle.min.js"></script>
+    <!-- <script type="text/javascript" src="js/Chart.bundle.js"></script> -->
     <script type="text/javascript" src="js/GraficoFinal.js"></script>
     <script type="text/javascript" src="js/Myjs.js"></script>
    <title>UREE</title>
@@ -72,7 +72,6 @@
                 $res = $mysqli->query($sqlmax);
                 $maximo = $res->fetch_assoc();
                 $maximo = $maximo['count(Individuo)'];
-                // $result = mysql_query($sqlcrear);
                 $result = $mysqli->query($sqlcrear);
 
                 $yourArray = array();
@@ -178,9 +177,6 @@
         		<p>fecha inicio: <input id=ini class="datepicker" type="text" placeholder="p.e: '2017-05-10'"></p>
         		<p>fecha final: <input id=fini class="datepicker" type="text" placeholder="p.e: '2017-05-10'"></p>
         		<button type="button" name="button" onclick="holanda()">Procesar</button>
-        		<!--<p id=prom></p>
-        		<input type="text" placeholder="Temp o Hum">
-        		<button type="button" name="button" onclick="promedio(this.value)">Chingale el promedio</button>-->
       		</form>
         </div>
         <canvas id="myChart3" class="graficos-linea"></canvas>
