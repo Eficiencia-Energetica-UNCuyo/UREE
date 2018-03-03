@@ -11,10 +11,12 @@
     <!--<link rel="stylesheet" href="css/pushy-buttons.min.css">-->
     <script type="text/javascript" src="js/aos.js"></script>
     <script type="text/javascript" src="js/anime.min.js"></script>
-    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <!-- <script type="text/javascript" src="js/jquery.min.js"></script> -->
+    <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/jquery-ui.js"></script>
     <script type="text/javascript" src="js/jquery.arctext.js"></script>
-    <script type="text/javascript" src="js/Chart.bundle.min.js"></script>
+    <!-- <script type="text/javascript" src="js/Chart.bundle.min.js"></script> -->
+    <script type="text/javascript" src="js/Chart.bundle.js"></script>
     <script type="text/javascript" src="js/GraficoFinal.js"></script>
     <script type="text/javascript" src="js/Myjs.js"></script>
    <title>UREE</title>
@@ -123,13 +125,13 @@
                 $mysqli->close();
           ?>
         </div>
-        
+
         <div class="flex-container">
         <a href="#slideit" class="subir" class="flex-item">Inicio</a>
         <a href="./Gerais/gerais.php" class="subir" class="flex-item">Datos Generales</a>
         </div>
-        
-        
+
+
       </div>
       <div class="canvas">
         <canvas id="polar_1"></canvas>
