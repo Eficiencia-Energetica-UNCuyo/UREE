@@ -152,12 +152,12 @@ $.ajax({
                 display: true,
                 text: 'Distribución de Consumos %'
             },
-            scale: {
-              ticks: {
-                beginAtZero: true
-              },
-              reverse: false
-            },
+            // scale: {
+            //   ticks: {
+            //     beginAtZero: true
+            //   },
+            //   reverse: false
+            // },
             animation: {
                 animateRotate: true,
                 animateScale: true
