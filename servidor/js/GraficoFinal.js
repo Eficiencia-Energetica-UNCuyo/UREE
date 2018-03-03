@@ -246,7 +246,7 @@ $.ajax({
 					url : "../php/polar.php",
 					type : "GET",
 					success : function(data){
-						//console.log(data);
+						console.log(data);
 						var porcentajes = [];
 						var oficinas = [];
 						var colores = [];
