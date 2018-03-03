@@ -42,8 +42,8 @@ foreach ($oficinas as $row) {
 $data = $porcentaje;
 //$c=array_combine($offi_num,$porcentaje);
 //free memory associated with result
-$res->close();
-$result->close();
+// $res->close();
+// $result->close();
 //close connection
 $mysqli->close();
 
