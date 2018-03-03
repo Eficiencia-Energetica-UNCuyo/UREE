@@ -9,8 +9,10 @@
     <link rel="stylesheet" type="text/css" media="all" href="../static/css/base.css">
     <link rel="stylesheet" type="text/css" media="all" href="../static/css/colors.css">
     <link rel="stylesheet" type="text/css" media="all" href="../static/css/svg-icons.css">
-    <script type="text/javascript" src="../js/jquery.min.js"></script>
-    <script type="text/javascript" src="../js/Chart.bundle.min.js"></script>
+    <!-- <script type="text/javascript" src="../js/jquery.min.js"></script> -->
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <!-- <script type="text/javascript" src="../js/Chart.bundle.min.js"></script> -->
+    <script type="text/javascript" src="../js/Chart.bundle.js"></script>
     <script type="text/javascript" src="../js/gerais.js"></script>
     <link rel="shortcut icon" sizes="16x16" href="../static/images/favicons/favicon.png">
     <link rel="shortcut icon" sizes="32x32" href="../static/images/favicons/favicon-32.png">

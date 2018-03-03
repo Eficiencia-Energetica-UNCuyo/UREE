@@ -15,14 +15,12 @@ if(!$mysqli){
 }
 //OBTENCION DEL CONSUMO TOTAL DE LAS INSTALACIONES.
 $query1 = "select SUM(energia) FROM General;";
-//$contotal = mysqli_num_rows($mysqli->query($query1));
 $res = $mysqli->query($query1);
 $contotal = $res->fetch_assoc();
 $contotal = round($contotal['SUM(energia)'], $decimales);
 
 //OBTENCION DE LA CANTITADAD TOTAL DE OFICINAS, $MAXIMO SERA ESE NUMERO.
 $sql="select max(oficina) from General;";
-//$maximo = mysqli_num_rows($mysqli->query($sql));
 $res = $mysqli->query($sql);
 $maximo = $res->fetch_assoc();
 $maximo = $maximo['max(oficina)'];
@@ -44,11 +42,10 @@ foreach ($oficinas as $row) {
 $data = $porcentaje;
 //$c=array_combine($offi_num,$porcentaje);
 //free memory associated with result
-//$res->close();
-//$result->close();
+$res->close();
+$result->close();
 //close connection
 $mysqli->close();
-//now print the data
-//print json_encode($data);
+
 print json_encode($data);
 ?>
