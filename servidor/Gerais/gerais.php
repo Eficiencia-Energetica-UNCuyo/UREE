@@ -197,7 +197,6 @@
                               $res = $mysqli->query($sqlmax);
                               $maximo = $res->fetch_assoc();
                               $maximo = $maximo['max(oficina)'];
-                              // $result = mysql_query($sqlcrear);
                               $result = $mysqli->query($sqlcrear);
 
                               $yourArray = array();
@@ -270,7 +269,6 @@
                                        $res = $mysqli->query($sqlmax);
                                        $maximo = $res->fetch_assoc();
                                        $maximo = $maximo['max(oficina)'];
-                                       $result = mysql_query($sqlcrear);
                                        $result = $mysqli->query($sqlcrear);
 
                                        $yourArray = array();
