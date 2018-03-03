@@ -254,10 +254,10 @@
                       </div>
                       <div class="column">
                         <?php
-                                       define('DB_HOST', 'localhost');
-                                       define('DB_USERNAME', 'maria');
-                                       define('DB_PASSWORD', 'maria');
-                                       define('DB_NAME', 'Corriente');
+                                       // define('DB_HOST', 'localhost');
+                                       // define('DB_USERNAME', 'maria');
+                                       // define('DB_PASSWORD', 'maria');
+                                       // define('DB_NAME', 'Corriente');
 
                                        $mysqli = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
                                        if(!$mysqli){
