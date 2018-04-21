@@ -1,5 +1,0 @@
-#Detectar raspberrys en la red local via dirección mac.
-
-arp-scan --interface=wlo1 --localnet | grep b8:27:eb
-
-
