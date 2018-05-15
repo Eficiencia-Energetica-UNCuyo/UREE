@@ -40,11 +40,7 @@ foreach ($oficinas as $row) {
 	$porcentaje[] = round($asd, $decimales);
 }
 $data = $porcentaje;
-//$c=array_combine($offi_num,$porcentaje);
-//free memory associated with result
-// $res->close();
-// $result->close();
-//close connection
+
 $mysqli->close();
 
 print json_encode($data);

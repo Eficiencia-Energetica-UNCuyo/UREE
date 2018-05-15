@@ -1,4 +1,5 @@
 $( function() {
+	// Generacion del calendario
 	$( ".datepicker" ).datepicker({dateFormat: "yy-mm-dd",
 	showAnim: "drop",
 	showOtherMonths: true,
@@ -8,42 +9,21 @@ $( function() {
 	prevText: "&lt;",
 	nextText: "&gt;"
 	});
-
-
-
 });
 
 
-
-
-/*function promedio(val) {
-	var str = document.getElementById("oli").value;
-	var ini = document.getElementById("ini").value;
-	var fini = document.getElementById("fini").value;
-	$.ajax({
-		url : "../php/promedios.php?q=" +str+"&ini=" +ini+"&fini=" +fini+"&val=" +val,
-		type : "GET",
-		success : function(data){
-			console.log(data);
-
-			var average = [];
-			for(var i in data) {
-				average.push(data[i].avg_mileage);
-			}
-			document.getElementById("prom").innerHTML = average[0];
-		}
-	});
-};*/
 function holanda(){
-	contraer()
+	contraer();
+	// Creacion de formulario.
 	var str = document.getElementById("oli").value;
 	var ini = document.getElementById("ini").value;
 	var fini = document.getElementById("fini").value;
 $.ajax({
 	url : "../php/GraficoFinal.php?q=" +str+"&ini=" +ini+"&fini=" +fini,
 	type : "GET",
-	success : function(data){
-		//console.log(data);
+
+	success : function(data) {
+		//Adquisicion de datos.
 		var ID = [];
 		var Temperatura = [];
 		var Humedad = [];
@@ -67,7 +47,7 @@ $.ajax({
 		for (i = 0; i < puntos; i++) {
 		  	DataDateredux[i] = DataDate[i*n];
 		};
-
+		// Grafico de temperaturas por oficina
 		var chartdata = {
 			labels: DataDate,
 			datasets: [
@@ -147,7 +127,7 @@ $.ajax({
 		});
 	},
 	error : function(data) {} }); }
-
+		// Graficos de energia por individuo
 		function holandacorriente(){
 			contraer2();
 			var str = document.getElementById("oli_corriente").value;
@@ -156,17 +136,17 @@ $.ajax({
 			var ini = document.getElementById("ini_corriente").value;
 			var fini = document.getElementById("fini_corriente").value;
 		$.ajax({
-			url : "../php/GraficoCorrienteFinal.php?nombre=" +str+"&ini=" +ini+"&fini=" +fini,
+			url : "../php/GraficoCorrienteFinal.php?nombre=" + str + "&ini=" + ini + "&fini=" + fini,
 			type : "GET",
 			success : function(data){
-				//console.log(data);
+
 				var energia = [];
 				var DataDate = [];
 				for(var i in data) {
 					energia.push(data[i].energia);
 					DataDate.push(data[i].DataDate);
 				}
-				//console.log(energia);
+
 				var puntos = 17;
 				var n = Math.floor(DataDate.length/puntos);
 				var DataDateredux = new Array();
@@ -239,10 +219,9 @@ $.ajax({
 			},error : function(data) {}
 		});
 	}
-//Gafico polar arreloco
-////////////////////////////////////////////////////////////////////////////////
-/*window.onload = function() {*/
+
 				$.ajax({
+					// Obtencion de datos del grafico polar y graficacion
 					url : "../php/polar.php",
 					type : "GET",
 					success : function(data){
@@ -253,7 +232,7 @@ $.ajax({
 						for(var i in data) {
 							porcentajes.push(data[i]);
 						}
-						//console.log(data);
+
 						console.log(porcentajes);
 						var lista = [
 										"rgba(54, 162, 235, 0.5)",
@@ -277,13 +256,11 @@ $.ajax({
 				        data: {
 				            datasets: [{
 				                data: [
-													//porcentajes
 													 porcentajes[0]
 				                ],
 				                backgroundColor: [
 													colores[0]
 				                ],
-				                //label: 'Consumo porcentual' // for legend
 				            }],
 				            labels: [
 												oficinas[0]
@@ -316,11 +293,9 @@ $.ajax({
 
 						j=1;
 						for (var i = 1; i < porcentajes.length; i++) {
-									//function() {
 					        if (config.data.datasets.length > 0) {
 					            config.data.labels.push(oficinas[i]);
 					            config.data.datasets.forEach(function(dataset) {
-											//var colorName = lista[j++];
 					            dataset.backgroundColor.push(lista[j++]);
 					            dataset.data.push(porcentajes[i]);
 											if (j==lista.length) {
@@ -328,9 +303,7 @@ $.ajax({
 											}
 					            });
 										}
-									//}
 								}
 						window.myPolarArea.update();
-						//var myLineChart = new Chart(ctx,config)
 					},error : function(data) {}
 				});

@@ -6,8 +6,7 @@ define('DB_HOST', 'localhost');
 define('DB_USERNAME', 'maria');
 define('DB_PASSWORD', 'maria');
 define('DB_NAME', 'Corriente');
-//get connection
-//$q = $_REQUEST["q"];
+
 
 
 $mysqli = new mysqli(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
@@ -15,10 +14,7 @@ $query2= "set @csum := 0";
 $query ="select DataDate as DateAnterior, (@csum := @csum + energia) as acumuladoAnterior from (select cast(t.DataDate as date) as DataDate, SUM(energia) as energia from General t where (DataDate between DATE_FORMAT(NOW() - INTERVAL 1 MONTH,'%Y-%m-01') AND DATE_FORMAT(NOW() - INTERVAL 1 MONTH,'%Y-%m-31')) group by cast(t.DataDate as date) order by cast(t.DataDate as date) asc) as tabla order by DataDate";
 $query3 = "SELECT DataDate as DateActual, (@csum := @csum + energia) as acumuladoActual from (select cast(t.DataDate as date) as DataDate, SUM(energia) as energia from General t where (DataDate between DATE_FORMAT(NOW() ,'%Y-%m-01') AND NOW()) group by cast(t.DataDate as date) order by cast(t.DataDate as date) asc) as tabla order by DataDate";
 
-//query to get data from the table
-//execute query
-//$result2 = $mysqli->query($query2);
-//$result2->close();
+
 $seteo = $mysqli->query($query2);
 $anterior = $mysqli->query($query);
 $seteoagain = $mysqli->query($query2);

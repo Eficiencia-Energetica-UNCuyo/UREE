@@ -1,10 +1,10 @@
 
 
 $.ajax({
+	// Grafico de corriente por oficina.
 	url : "../php/GraficoEnergiaTotal.php?",
 	type : "GET",
 	success : function(data){
-		//console.log(data);
 		var acumulado = [];
 		var DataDate = [];
 		for(var i in data) {
@@ -12,7 +12,7 @@ $.ajax({
 			DataDate.push(data[i].DataDate);
 		}
 
-
+		// Objeto de configuracion de grafico de temperaturas.
 		var chartdata = {
 			labels: DataDate,
 			datasets: [
@@ -28,7 +28,7 @@ $.ajax({
 				}
 			]
 		};
-
+		// Generacion de graficos de temperatura
 		var ctx = $("#myChart3");
 		var LineGraph = new Chart(ctx, {
 			type: 'line',
@@ -55,7 +55,7 @@ $.ajax({
 											fontColor: "rgba(59, 89, 152, 0.75)",
 											fontStyle: "bold",
 											callback: function(label, index, labels) {
-																return label+'°C';
+																return label + '°C';
 											}
 									}
 								}

@@ -62,15 +62,17 @@
             <div class="grid ms">
               <div class="column">
                 		<script type="text/javascript">
+                    // Solicitud ajax para obtener consumod acumulados mensualmente.
                 		$.ajax({
                 			url : "../php/GraficoEnergiaTotal.php?",
                 			type : "GET",
                 			success : function(data){
-                				//console.log(data);
+                        //Vectores para almacenar informcion de la base de datos.
                 				var acumulado = [];
                 				var DataDate = [];
                 				var acumuladoan = [];
                 				var DataDatean = [];
+
                 				for(var i in data) {
                 					acumulado.push(data[i].acumuladoActual);
                 					DataDate.push(data[i].DateActual);
@@ -78,13 +80,8 @@
                 					DataDatean.push(data[i].DateAnterior);
 
                 				}
-                        console.log("PHPPPPPPPPPP");
-                        console.log('%o',{data});
-                				console.log(acumulado);
-                				console.log(DataDate);
-                				console.log(acumuladoan);
-                				console.log(DataDatean);
 
+                        // Objetos de chartjs de configuracion para la representación en grafico lineal.
 
                 				var chartdata = {
                 					labels: DataDatean,
@@ -112,7 +109,7 @@
                 						}
                 					]
                 				};
-
+                        //Generacion de los graficos
                 				var ctx = $("#myChart3");
                 				var LineGraph = new Chart(ctx, {
                 					type: 'line',
@@ -182,6 +179,7 @@
                     <div class="grid vertical-align">
                       <div class="column">
                         <?php
+                              // PHP para el calculo del Ranking y generacion de tabla
                               define('DB_HOST', 'localhost');
                               define('DB_USERNAME', 'maria');
                               define('DB_PASSWORD', 'maria');
@@ -191,11 +189,12 @@
                               if(!$mysqli){
                                 die("Connection failed: " . $mysqli->error);
                               }
-
+                              // Solicitudes a la base de datos
                               $sqlmax="select max(oficina) from General;";
                               $sqlcrear="select Individuo, Variacion_Porcentual from Ranking order by Variacion_Porcentual asc;";
                               $res = $mysqli->query($sqlmax);
                               $maximo = $res->fetch_assoc();
+                              //Calcula la cantidad maxima de oficinas
                               $maximo = $maximo['max(oficina)'];
                               $result = $mysqli->query($sqlcrear);
 
@@ -211,12 +210,14 @@
                               if ($maximo>4){
                                 $maximo=4;
                               }
+                              // Creacion de las tablas de Ranking
                               echo "<table style='padding-top:5%;'>";
                               for($i=0;$i<$maximo;$i++){
                               echo "<tr>";
                               $variable=$yourArray[$i]['Individuo'];
                               echo "<td>";
                               $numero=rand(1,28);
+                              // Asignacion de avatares a los individuos.
                               echo "<img class='avatar' src='../avatares/avatar-$numero.png'>";
                               echo "</td>";
                               echo "<td>";
@@ -228,17 +229,17 @@
                               echo "%";
                               echo "</td>";
 
-                              if ($yourArray[$i]['Variacion_Porcentual']<0){
+                              if ($yourArray[$i]['Variacion_Porcentual'] < 0){
                                 echo "<td>";
                                 echo "<img class='flecha' src='../../avatares/flecharoja.svg'>";
                                 echo "</td>";
                               }
-                              if ($yourArray[$i]['Variacion_Porcentual']>0){
+                              if ($yourArray[$i]['Variacion_Porcentual'] > 0){
                                 echo "<td>";
                                 echo "<img class='flecha' src='../../avatares/flechaverde.svg'>";
                                 echo "</td>";
                               }
-                              if ($yourArray[$i]['Variacion_Porcentual']==0){
+                              if ($yourArray[$i]['Variacion_Porcentual'] == 0){
 
                                 echo "<td>";
                                 echo "<img class='flecha' src='../../avatares/flechanegra.svg'>";
@@ -263,7 +264,7 @@
                                        if(!$mysqli){
                                          die("Connection failed: " . $mysqli->error);
                                        }
-
+                                       // Ranking de las oficinas
                                        $sqlmax="select max(oficina) from General;";
                                        $sqlcrear="select Oficina, Variacion_Porcentual from RankingOficina order by Variacion_Porcentual asc;";
                                        $res = $mysqli->query($sqlmax);
@@ -283,6 +284,7 @@
                                        if ($maximo>4){
                                          $maximo=4;
                                        }
+                                       // Creacion de las tablas de oficins
                                        echo "<table>";
                                        for($i=0;$i<$maximo;$i++){
                                        echo "<tr>";
@@ -299,7 +301,7 @@
                                        echo $yourArray[$i]['Variacion_Porcentual'];
                                        echo "%";
                                        echo "</td>";
-
+                                       // Flechas para verificacion de aumento y descensos de consumo
                                        if ($yourArray[$i]['Variacion_Porcentual']<0){
                                          echo "<td>";
                                          echo "<img class='flecha' src='../avatares/flecharoja.svg'>";

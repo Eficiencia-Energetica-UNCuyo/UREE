@@ -8,15 +8,12 @@
     <link rel="stylesheet" href="css/aos.css">
     <link rel="stylesheet" href="iconfont/material-icons.css">
     <link href="css/datepicker.css" rel="stylesheet" type="text/css"/>
-    <!--<link rel="stylesheet" href="css/pushy-buttons.min.css">-->
     <script type="text/javascript" src="js/aos.js"></script>
     <script type="text/javascript" src="js/anime.min.js"></script>
     <script type="text/javascript" src="js/jquery.min.js"></script>
-    <!-- <script type="text/javascript" src="js/jquery.js"></script> -->
     <script type="text/javascript" src="js/jquery-ui.js"></script>
     <script type="text/javascript" src="js/jquery.arctext.js"></script>
     <script type="text/javascript" src="js/Chart.bundle.min.js"></script>
-    <!-- <script type="text/javascript" src="js/Chart.bundle.js"></script> -->
     <script type="text/javascript" src="js/GraficoFinal.js"></script>
     <script type="text/javascript" src="js/Myjs.js"></script>
    <title>UREE</title>
@@ -40,9 +37,7 @@
               <p class="botones">
                 <a href="#intro" id="boton1">General</a>
                 <a href="#work" id="boton2">Mi Consumo</a>
-                <a href="#about" id="boton3">Mi oficina</a><!--?subject=UREE%20en%20EMESA-->
-                <!--<a href=href="mailto:eficienciaenergeticauncuyo@gmail.com" id="boton4">Contacto</a>-->
-                <!-- <button type="button" name="button" id="boton4" onclick="mail()">Contacto</button> -->
+                <a href="#about" id="boton3">Mi oficina</a>
                 <a href="#slideit" id="boton4" onclick="mail()">Contacto</a>
               </p>
            </div>
@@ -84,40 +79,41 @@
                 $decimales=4;
                 echo "<table>";
                 for($i=0;$i<$maximo;$i++){
-                echo "<tr>";
-                $variable=$yourArray[$i]['Individuo'];
-                echo "<td>";
-                $numero=rand(1,28);
-                echo "<img class='avatar' src='../avatares/avatar-$numero.png'>";
-                echo "</td>";
-                echo "<td>";
-                $variable=str_replace("_"," ","$variable");
-                echo $variable;
-                echo "</td>";
-                echo "<td>";
-                $yourArray[$i]['Variacion_Porcentual'] = (1-round($yourArray[$i]['Variacion_Porcentual'], $decimales))*100;
-                echo $yourArray[$i]['Variacion_Porcentual'];
-                echo "%";
-                echo "</td>";
-
-                if ($yourArray[$i]['Variacion_Porcentual']<0){
+                  echo "<tr>";
+                  $variable=$yourArray[$i]['Individuo'];
                   echo "<td>";
-                  echo "<img class='flecha' src='../avatares/flecharoja.svg'>";
+                  $numero=rand(1,28);
+                  // Avatares aleatorios en base a numero generado aleatoriamente
+                  echo "<img class='avatar' src='../avatares/avatar-$numero.png'>";
                   echo "</td>";
-                }
-                if ($yourArray[$i]['Variacion_Porcentual']>0){
                   echo "<td>";
-                  echo "<img class='flecha' src='../avatares/flechaverde.svg'>";
+                  $variable = str_replace("_"," ","$variable");
+                  echo $variable;
                   echo "</td>";
-                }
-                if ($yourArray[$i]['Variacion_Porcentual']==0){
-
                   echo "<td>";
-                  echo "<img class='flecha' src='../avatares/flechanegra.svg'>";
+                  $yourArray[$i]['Variacion_Porcentual'] = (1-round($yourArray[$i]['Variacion_Porcentual'], $decimales))*100;
+                  echo $yourArray[$i]['Variacion_Porcentual'];
+                  echo "%";
                   echo "</td>";
-                }
 
-                echo "</tr>";
+                  if ($yourArray[$i]['Variacion_Porcentual']<0){
+                    echo "<td>";
+                    echo "<img class='flecha' src='../avatares/flecharoja.svg'>";
+                    echo "</td>";
+                  }
+                  if ($yourArray[$i]['Variacion_Porcentual']>0){
+                    echo "<td>";
+                    echo "<img class='flecha' src='../avatares/flechaverde.svg'>";
+                    echo "</td>";
+                  }
+                  if ($yourArray[$i]['Variacion_Porcentual']==0){
+
+                    echo "<td>";
+                    echo "<img class='flecha' src='../avatares/flechanegra.svg'>";
+                    echo "</td>";
+                  }
+
+                  echo "</tr>";
                 }
                 echo "</table>";
 

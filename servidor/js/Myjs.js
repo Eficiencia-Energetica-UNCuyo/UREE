@@ -70,14 +70,7 @@ $(function() {
   });
 };
 
-  /*var CSStransforms = anime({
-  targets: '.circular',
-  translateX: 530,
-  translateY: -35,
-  elasticity: 300,
-  rotate: '2turn',
-  easing: 'easeInOutBack'
-});*/
+
   function range(start, stop, step){
   var a=[start], b=start;
   while(b<stop){b+=step;a.push(b)}
@@ -85,26 +78,18 @@ $(function() {
 };
 });
 function expand() {
-  //var num = expansible.toString();
-  //var ID ="#rango" + expansible;
   document.getElementById("rango3").classList.add('expandido');
   document.getElementById("rango3").classList.remove('circular');
 };
 function contraer() {
-  //var num = expansible.toString();
-  //var ID ="#rango" + expansible;
   document.getElementById("rango3").classList.remove('expandido');
   document.getElementById("rango3").classList.add('circular');
 }
 function expand2() {
-  //var num = expansible.toString();
-  //var ID ="#rango" + expansible;
   document.getElementById("rango2").classList.add('expandido');
   document.getElementById("rango2").classList.remove('circular');
 };
 function contraer2() {
-  //var num = expansible.toString();
-  //var ID ="#rango" + expansible;
   document.getElementById("rango2").classList.remove('expandido');
   document.getElementById("rango2").classList.add('circular');
 }

@@ -3,8 +3,7 @@ $.ajax({
   url : "../php/geraisPieEquipos.php",
   type : "GET",
   success : function(data){
-    console.log("GERAIS.JS");
-    console.log('%O',{data});
+    // Grafico de tortas para el consumo energetico
     var equipo = [];
     var energia = [];
     var colores = [];
@@ -12,8 +11,6 @@ $.ajax({
       equipo.push(data[i].equipo);
       energia.push(Math.round(data[i].energia));
     }
-    console.log(equipo);
-    console.log(energia);
 
     var lista = [
             "rgba(54, 162, 235, 0.5)",
@@ -30,19 +27,15 @@ $.ajax({
         j=0;
       }
     }
-    console.log(equipo);
-    console.log(colores);
     var config = {
         data: {
             datasets: [{
                 data: [
-                  //porcentajes
                    energia[0]
                 ],
                 backgroundColor: [
                   colores[0]
                 ],
-                //label: 'Consumo porcentual' // for legend
             }],
             labels: [
                 equipo[0]
@@ -58,12 +51,7 @@ $.ajax({
                 display: true,
                 text: 'Distribución de Consumos %'
             },
-            // scale: {
-            //   ticks: {
-            //     beginAtZero: true
-            //   },
-            //   reverse: false
-            // },
+
             animation: {
                 animateRotate: true,
                 animateScale: true
@@ -74,12 +62,11 @@ $.ajax({
     window.myPie = new Chart(ctx, config);
 
     j=1;
+    // Mapeo de colores para grafico de torta
     for (var i = 1; i < equipo.length; i++) {
-          //function() {
           if (config.data.datasets.length > 0) {
               config.data.labels.push(equipo[i]);
               config.data.datasets.forEach(function(dataset) {
-              //var colorName = lista[j++];
               dataset.backgroundColor.push(lista[j++]);
               dataset.data.push(energia[i]);
               if (j==lista.length) {
@@ -87,27 +74,23 @@ $.ajax({
               }
               });
             }
-          //}
         }
     window.myPie.update();
-    //var myLineChart = new Chart(ctx,config)
   },error : function(data) {}
 });
-////////////////////////////////////////////////////////////////////////////////
 
 $.ajax({
+
+  // Grafico polar para consumo por oficina
   url : "../php/polar.php",
   type : "GET",
   success : function(data){
-    //console.log(data);
     var porcentajes = [];
     var oficinas = [];
     var colores = [];
     for(var i in data) {
       porcentajes.push(data[i]);
     }
-    //console.log(data);
-    console.log(porcentajes);
     var lista = [
             "rgba(54, 162, 235, 0.5)",
             "rgba(255, 205, 86, 0.5)",
@@ -124,19 +107,15 @@ $.ajax({
         j=0;
       }
     }
-    console.log(oficinas);
-    console.log(colores);
     var config = {
         data: {
             datasets: [{
                 data: [
-                  //porcentajes
                    porcentajes[0]
                 ],
                 backgroundColor: [
                   colores[0]
                 ],
-                //label: 'Consumo porcentual' // for legend
             }],
             labels: [
                 oficinas[0]
@@ -152,12 +131,6 @@ $.ajax({
                 display: true,
                 text: 'Distribución de Consumos %'
             },
-            // scale: {
-            //   ticks: {
-            //     beginAtZero: true
-            //   },
-            //   reverse: false
-            // },
             animation: {
                 animateRotate: true,
                 animateScale: true
@@ -169,11 +142,9 @@ $.ajax({
 
     j=1;
     for (var i = 1; i < porcentajes.length; i++) {
-          //function() {
           if (config.data.datasets.length > 0) {
               config.data.labels.push(oficinas[i]);
               config.data.datasets.forEach(function(dataset) {
-              //var colorName = lista[j++];
               dataset.backgroundColor.push(lista[j++]);
               dataset.data.push(porcentajes[i]);
               if (j==lista.length) {
@@ -181,9 +152,7 @@ $.ajax({
               }
               });
             }
-          //}
         }
     window.myPolarArea.update();
-    //var myLineChart = new Chart(ctx,config)
   },error : function(data) {}
 });
